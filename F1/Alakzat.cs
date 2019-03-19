@@ -12,7 +12,7 @@ namespace F1
         public const int ALAKZATTIPUSTEGLALAP = 3;
         private const int ALAKZATOKSZAMA = 3;
         public static readonly List<int> ALAKZATOK = new List<int>();
-
+        // konstruktor 
         static Alakzat()
         {
             for (int i = 1; i < ALAKZATOKSZAMA+1; i++)
