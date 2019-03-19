@@ -17,6 +17,7 @@ namespace F1
         {
             double adat = 0;
             adat = Convert.ToDouble(AdatBekeres.EllenorzottBekeres<double>(OLDALBEKERESZOVEG));
+            Console.WriteLine();
             return adat;
         }
         public abstract double Szamol();
