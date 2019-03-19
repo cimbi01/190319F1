@@ -6,6 +6,7 @@ namespace F1
 {
     class Kor : Alakzat
     {
+        // konstruktor
         public Kor(string _nev =  "Kör") : base(_nev) {}
 
         protected override void Szamol()
