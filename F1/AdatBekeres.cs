@@ -63,8 +63,6 @@ namespace F1
                     adat = EllenorzottBekeres(bekerestipus, bekeroszoveg);
                 }
             }
-            Console.WriteLine();
-            Console.WriteLine();
             return adat;
         }
     }
