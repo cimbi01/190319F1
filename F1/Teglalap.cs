@@ -10,8 +10,8 @@ namespace F1
 
         protected override void Szamol()
         {
-            double oldal1 = this.Olvas("Add meg a háromszog egy oldalát!");
-            double oldal2 = this.Olvas("Add meg a háromszog magassagat");
+            double oldal1 = this.Olvas("Add meg a téglalap egyik oldalát!");
+            double oldal2 = this.Olvas("Add meg a téglalap másik oldalát");
             this.ter = (oldal1 * oldal2);
         }
     }

@@ -25,7 +25,6 @@ namespace F1
         }
 
         // visszaadja a bekéréstípusának megfelelően
-        // ha kovnertálható, és a megadott intervallumban van (ld. feljebb)
         // vagy ha üres, akkor üresen
         public static T EllenorzottBekeres<T>(string bekeroszoveg = "Add meg a bekért adatot!")
         {
@@ -63,6 +62,22 @@ namespace F1
             return adatkonvertált;
         }
 
-
+        // Bekér egy adatot
+        // majd megvizsgálja ha kovnertálható
+        // majd megnézi hogy benne van-e a megadott tombben
+        // majd tömbben van függvényében visszaad egy értéket
+        public static T EllenorzottBekeres<T>(List<T> tomb, bool tombben = true, string bekeroszoveg = "Add meg a bekért adatot!")
+        {
+            //bekéri adatkonvertált
+            T adatkonvertált = default(T);
+            adatkonvertált = EllenorzottBekeres<T>(bekeroszoveg);
+            // ha benne van pedig nem kéne
+            if ((tomb.Contains(adatkonvertált) && !tombben) ||
+                // vagy ha nincs benne pedig bent kéne
+                !tomb.Contains(adatkonvertált) && tombben)
+                // ujra bekéri
+                EllenorzottBekeres(tomb, tombben, bekeroszoveg);
+            return adatkonvertált;
+        }
     }
 }

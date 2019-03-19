@@ -7,7 +7,12 @@ namespace F1
     static class Simulator
     {
         // Teszteli a meglevo osztályokat, és azok metódusait
+        private static Alakzat[] alakzatok;
         public static void Test()
+        {
+
+        }
+        private static void Init()
         {
 
         }
