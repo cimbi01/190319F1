@@ -69,14 +69,16 @@ namespace F1
         public static T EllenorzottBekeres<T>(List<T> tomb, string bekeroszoveg = "Add meg a bekért adatot!", bool tombben = true)
         {
             //bekéri adatkonvertált
-            T adatkonvertált = default(T);
-            adatkonvertált = EllenorzottBekeres<T>(bekeroszoveg);
+            T adatkonvertált = adatkonvertált = EllenorzottBekeres<T>(bekeroszoveg);
             // ha benne van pedig nem kéne
             if ((tomb.Contains(adatkonvertált) && !tombben) ||
                 // vagy ha nincs benne pedig bent kéne
-                !tomb.Contains(adatkonvertált) && tombben)
-                // ujra bekéri
-                adatkonvertált = EllenorzottBekeres(tomb, bekeroszoveg, tombben);
+                (!tomb.Contains(adatkonvertált) && tombben))
+                { 
+                    // ujra bekéri
+                    Console.WriteLine("Nincs ilyen adat a megadott paraméterek alapján!\n");
+                    adatkonvertált = EllenorzottBekeres(tomb, bekeroszoveg, tombben);
+                }
             return adatkonvertált;
         }
     }

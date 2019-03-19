@@ -23,20 +23,20 @@ namespace F1
 
         private readonly string name;
         protected double ter;
-        private const string OLDALBEKERESZOVEG = "Add meg az egyik oldalt!";
         public Alakzat(string _nev)
         {
             this.name = _nev;
+            this.Szamol();
         }
         protected double Olvas(string bekeroszoveg)
         {
             double adat = 0;
-            adat = Convert.ToDouble(AdatBekeres.EllenorzottBekeres<double>(OLDALBEKERESZOVEG));
+            adat = Convert.ToDouble(AdatBekeres.EllenorzottBekeres<double>(bekeroszoveg));
             return adat;
         }
         protected abstract void Szamol();
-        public void Kiir() { Console.WriteLine("Terulet: {0}", this.Ter); }
-        public double Ter { get; set; }
+        public void Kiir() {Console.WriteLine("Terulet: {0}", this.Ter); }
+        public double Ter { get { return this.ter; } }
 
         // visszaad egy alakzatot megadott alakzattipus függvényében
         public static Alakzat GetAlakzat(int alakzattipus)
