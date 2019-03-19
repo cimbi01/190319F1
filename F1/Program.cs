@@ -6,6 +6,7 @@ namespace F1
     {
         static void Main(string[] args)
         {
+            Simulator.Test();
             Console.ReadKey();
         }
     }

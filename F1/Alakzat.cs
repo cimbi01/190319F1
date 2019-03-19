@@ -7,17 +7,17 @@ namespace F1
     abstract class Alakzat
     {
         // alakzattípusok
-        public const int ALAKZATTIPUSKOR = 0;
-        public const int ALAKZATTIPUSHAROMSZOG = 1;
-        public const int ALAKZATTIPUSTEGLALAP = 2;
+        public const int ALAKZATTIPUSKOR = 1;
+        public const int ALAKZATTIPUSHAROMSZOG = 2;
+        public const int ALAKZATTIPUSTEGLALAP = 3;
         private const int ALAKZATOKSZAMA = 3;
         public static readonly List<int> ALAKZATOK = new List<int>();
 
         static Alakzat()
         {
-            for (int i = 0; i < ALAKZATOKSZAMA; i++)
+            for (int i = 1; i < ALAKZATOKSZAMA+1; i++)
             {
-                ALAKZATOK[i] = i;
+                ALAKZATOK.Add(i);
             }
         }
 
@@ -37,5 +37,24 @@ namespace F1
         protected abstract void Szamol();
         public void Kiir() { Console.WriteLine("Terulet: {0}", this.Ter); }
         public double Ter { get; set; }
+
+        // visszaad egy alakzatot megadott alakzattipus függvényében
+        public static Alakzat GetAlakzat(int alakzattipus)
+        {
+            Alakzat alakzat = null;
+            switch (alakzattipus)
+            {
+                case ALAKZATTIPUSHAROMSZOG:
+                    alakzat = new Haromszog();
+                    break;
+                case ALAKZATTIPUSKOR:
+                    alakzat = new Kor();
+                    break;
+                case ALAKZATTIPUSTEGLALAP:
+                    alakzat = new Teglalap();
+                    break;
+            }
+            return alakzat;
+        }
     }
 }

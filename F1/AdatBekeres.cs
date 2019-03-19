@@ -66,7 +66,7 @@ namespace F1
         // majd megvizsgálja ha kovnertálható
         // majd megnézi hogy benne van-e a megadott tombben
         // majd tömbben van függvényében visszaad egy értéket
-        public static T EllenorzottBekeres<T>(List<T> tomb, bool tombben = true, string bekeroszoveg = "Add meg a bekért adatot!")
+        public static T EllenorzottBekeres<T>(List<T> tomb, string bekeroszoveg = "Add meg a bekért adatot!", bool tombben = true)
         {
             //bekéri adatkonvertált
             T adatkonvertált = default(T);
@@ -76,7 +76,7 @@ namespace F1
                 // vagy ha nincs benne pedig bent kéne
                 !tomb.Contains(adatkonvertált) && tombben)
                 // ujra bekéri
-                EllenorzottBekeres(tomb, tombben, bekeroszoveg);
+                adatkonvertált = EllenorzottBekeres(tomb, bekeroszoveg, tombben);
             return adatkonvertált;
         }
     }
