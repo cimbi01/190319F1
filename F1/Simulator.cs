@@ -12,7 +12,6 @@ namespace F1
         {
             // alakzatok init
             Init(db);
-            //felesleges ide több háromszögterulet, lehetne csak egy
             List<double> haromszog_teruletek = new List<double>();
             List<double> kor_teruletek = new List<double>();
             List<double> teglalap_teruletek = new List<double>();
