@@ -13,10 +13,10 @@ namespace F1
         {
             this.name = _nev;
         }
-        public double Olvas()
+        public static double Olvas()
         {
             double adat = 0;
-            adat = Convert.ToDouble(AdatBekeres.EllenorzottBekeres(AdatBekeres.BEKERESOLDAL, OLDALBEKERESZOVEG));
+            adat = Convert.ToDouble(AdatBekeres.EllenorzottBekeres<double>(OLDALBEKERESZOVEG));
             return adat;
         }
         public abstract double Szamol();

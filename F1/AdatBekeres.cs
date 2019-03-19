@@ -6,8 +6,6 @@ namespace F1
 {
     static class AdatBekeres
     {
-        public const int BEKERESOLDAL = 0;
-
         // csak kiírja a bekeroszoveget
         // és beker egy adatot ellenorzes nélkül
         public static string Bekeres(string bekeroszoveg = "Add meg a bekért adatot!")
@@ -29,30 +27,29 @@ namespace F1
         // visszaadja a bekéréstípusának megfelelően
         // ha kovnertálható, és a megadott intervallumban van (ld. feljebb)
         // vagy ha üres, akkor üresen
-        public static string EllenorzottBekeres(int bekerestipus, string bekeroszoveg = "Add meg a bekért adatot!")
+        public static T EllenorzottBekeres<T>(string bekeroszoveg = "Add meg a bekért adatot!")
         {
             string adat = Bekeres(bekeroszoveg);
-            int adatkonvertált = 0;
+            // a kovnertált adat attól függően milyen típusú adatot várunk vissza
+            T adatkonvertált = default(T);
             // ha az adat üres
             if (adat == "")
             {
                 //megkérdezi hogy biztos üresen maradjon-e
                 bool adatmaradjonures = EldöntendoBekeres("Biztos, hogy nem adsz meg semmilyen adatot?\n Ha nem szeretnél megadni semmilyen adatot, nyomj egy entert", "");
                 // ha ne maradjon üresen akkor meghívja önmagát
-                if (!adatmaradjonures) adat = EllenorzottBekeres(bekerestipus, bekeroszoveg);
-                // ha minden marad
-                // akkor koveertálható 0-vá kell tenni
-                else
+                if (!adatmaradjonures)
                 {
-                    adat = "0";
+                    adatkonvertált = EllenorzottBekeres<T>(bekeroszoveg);
                 }
             }
-            // ha az adat nem üres és a bekeres az kor, vagy magassag
-            else
+            // ha az adat nem üres
+            else if(adat != "")
             { 
                 try
                 {
-                    adatkonvertált = Convert.ToInt32(adat);
+                    // megpróbálja a kapott adatot T típusúvá tenni
+                    adatkonvertált = (T)Convert.ChangeType(adat, typeof(T));
                 }
                 // ha nem sikerult konvertálni
                 catch(FormatException e)
@@ -60,10 +57,10 @@ namespace F1
                     Console.WriteLine("Hibás adatbevitel");
                     Console.WriteLine(e.Message);
                     // ujra meghívja magát, amíg a konvertálás nem jó
-                    adat = EllenorzottBekeres(bekerestipus, bekeroszoveg);
+                    adatkonvertált = EllenorzottBekeres<T>(bekeroszoveg);
                 }
             }
-            return adat;
+            return adatkonvertált;
         }
     }
 }
