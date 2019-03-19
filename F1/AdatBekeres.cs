@@ -62,5 +62,7 @@ namespace F1
             }
             return adatkonvertált;
         }
+
+
     }
 }

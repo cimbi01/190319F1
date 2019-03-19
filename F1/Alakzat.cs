@@ -6,21 +6,21 @@ namespace F1
 {
     abstract class Alakzat
     {
-        private string name;
+        private readonly string name;
         protected double ter;
         private const string OLDALBEKERESZOVEG = "Add meg az egyik oldalt!";
         public Alakzat(string _nev)
         {
             this.name = _nev;
         }
-        public static double Olvas()
+        protected double Olvas(string bekeroszoveg)
         {
             double adat = 0;
             adat = Convert.ToDouble(AdatBekeres.EllenorzottBekeres<double>(OLDALBEKERESZOVEG));
             return adat;
         }
-        public abstract double Szamol();
-        public void Kiir() => Console.WriteLine("Terulet: {0}", this.ter);
+        protected abstract void Szamol();
+        public void Kiir() { Console.WriteLine("Terulet: {0}", this.Ter); }
         public double Ter { get; set; }
     }
 }
