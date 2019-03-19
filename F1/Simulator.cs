@@ -29,11 +29,11 @@ namespace F1
             else
                 Console.WriteLine("Nincs háromszög az alakzatok között");
             if (kor_teruletek.Count > 0)
-                Console.WriteLine("Legnagyobb Háromszog terulet:  {0}", MaximumKereses(kor_teruletek));
+                Console.WriteLine("Legnagyobb Kör terulet:  {0}", MaximumKereses(kor_teruletek));
             else
                 Console.WriteLine("Nincs kör az alakzatok között");
             if (teglalap_teruletek.Count > 0)
-                Console.WriteLine("Legnagyobb Háromszog terulet:  {0}", MaximumKereses(haromszog_teruletek));
+                Console.WriteLine("Legnagyobb Téglalap terulet:  {0}", MaximumKereses(haromszog_teruletek));
             else
                 Console.WriteLine("Nincs téglalap az alakzatok között");
         }

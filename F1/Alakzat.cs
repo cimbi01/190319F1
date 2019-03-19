@@ -35,7 +35,7 @@ namespace F1
             return adat;
         }
         protected abstract void Szamol();
-        public void Kiir() {Console.WriteLine("Terulet: {0}", this.Ter); }
+        public void Kiir() {Console.WriteLine("{0} Terulet: {1}", this.name, this.Ter); }
         public double Ter { get { return this.ter; } }
 
         // visszaad egy alakzatot megadott alakzattipus függvényében
