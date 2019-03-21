@@ -81,5 +81,18 @@ namespace F1
                 }
             return adatkonvertált;
         }
-    }
+        // nem lehet generikus, mert min-t és T-t nem lehet osszeegyeztetni
+        public static double EllenorzottBekeres(string bekeroszoveg = "Add meg a bekért adatot!", int MIN = 0)
+        {
+            //bekéri adatkonvertált
+            double adatkonvertált = EllenorzottBekeres<double>(bekeroszoveg);
+            // ha kisebb mint a min akkor ujra
+            if (adatkonvertált <= MIN)
+            {
+                Console.WriteLine("A megadott adat kisebb vagy egyenlő, mint {0}", MIN);
+                adatkonvertált = EllenorzottBekeres(bekeroszoveg);
+            }
+            return adatkonvertált;
+        }
+    }   
 }

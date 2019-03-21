@@ -35,9 +35,10 @@ namespace F1
         protected abstract void Beolvas();
         // visszaadja a bekeroszoveg által kért
         // vélhetően double adatot
+        // ami nagyobb mint 0
         protected double Olvas(string bekeroszoveg)
         {
-            return AdatBekeres.EllenorzottBekeres<double>(bekeroszoveg);
+            return AdatBekeres.EllenorzottBekeres(bekeroszoveg);
         }
         protected abstract void Szamol();
         public void Kiir() {Console.WriteLine("{0} Terulet: {1}", this.name, this.Ter); }
