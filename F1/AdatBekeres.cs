@@ -15,7 +15,6 @@ namespace F1
             adat = Console.ReadLine();
             return adat;
         }
-
         // meghívja bekerst
         // majd visszaadja, hogy a bekert adat egyenlo-e igazszoveggel
         public static bool EldöntendoBekeres(string bekeroszoveg, string igazszoveg)
@@ -23,7 +22,6 @@ namespace F1
             string adat = Bekeres(bekeroszoveg);
             return (adat == igazszoveg);
         }
-
         // visszaadja a bekéréstípusának megfelelően
         // vagy ha üres, akkor üresen
         public static T EllenorzottBekeres<T>(string bekeroszoveg = "Add meg a bekért adatot!")
@@ -61,7 +59,6 @@ namespace F1
             }
             return adatkonvertált;
         }
-
         // Bekér egy adatot
         // majd megvizsgálja ha kovnertálható
         // majd megnézi hogy benne van-e a megadott tombben
@@ -81,6 +78,8 @@ namespace F1
                 }
             return adatkonvertált;
         }
+        // bekér egy adatot, amit addig kér amig nem double-é konvertálható
+        // és ha kisebb mint a MIN akk visszaadja, ha nem akkor meghivja újra önmagát
         // nem lehet generikus, mert min-t és T-t nem lehet osszeegyeztetni
         public static double EllenorzottBekeres(string bekeroszoveg = "Add meg a bekért adatot!", int MIN = 0)
         {

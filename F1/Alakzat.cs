@@ -19,7 +19,6 @@ namespace F1
                 ALAKZATOK.Add(i);
             }
         }
-
         private readonly string name;
         // terulet
         protected double ter;
@@ -43,7 +42,6 @@ namespace F1
         protected abstract void Szamol();
         public void Kiir() {Console.WriteLine("{0} Terulet: {1}", this.name, this.Ter); }
         public double Ter { get { return this.ter; } }
-
         // visszaad egy alakzatot megadott alakzattipus függvényében
         public static Alakzat GetAlakzat(int alakzattipus)
         {

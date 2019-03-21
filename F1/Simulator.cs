@@ -8,6 +8,9 @@ namespace F1
     {
         // Teszteli a meglevo osztályokat, és azok metódusait
         private static Alakzat[] alakzatok;
+        // Init
+        // kiszámitja az összes teruletet, majd kiirja
+        // majd megkeresi a legnagyobbakat, ha több mint 0 van és kiirja
         public static void Test(int db = 1)
         {
             // alakzatok init
@@ -37,7 +40,7 @@ namespace F1
             else
                 Console.WriteLine("Nincs téglalap az alakzatok között");
         }
-        // alakzat init
+        // alakzat init, annyi alakzatot kér be amennyi a db
         private static void Init(int db)
         {
             alakzatok = new Alakzat[db];
