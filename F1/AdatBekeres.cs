@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace F1
 {
-    static class AdatBekeres
+    internal static class AdatBekeres
     {
-        // csak kiírja a bekeroszoveget
-        // és beker egy adatot ellenorzes nélkül
+        #region Public Methods
+
+        // csak kiírja a bekeroszoveget és beker egy adatot ellenorzes nélkül
         public static string Bekeres(string bekeroszoveg = "Add meg a bekért adatot!")
         {
             string adat = "";
@@ -15,15 +15,13 @@ namespace F1
             adat = Console.ReadLine();
             return adat;
         }
-        // meghívja bekerst
-        // majd visszaadja, hogy a bekert adat egyenlo-e igazszoveggel
+        // meghívja bekerst majd visszaadja, hogy a bekert adat egyenlo-e igazszoveggel
         public static bool EldöntendoBekeres(string bekeroszoveg, string igazszoveg)
         {
             string adat = Bekeres(bekeroszoveg);
             return (adat == igazszoveg);
         }
-        // visszaadja a bekéréstípusának megfelelően
-        // vagy ha üres, akkor üresen
+        // visszaadja a bekéréstípusának megfelelően vagy ha üres, akkor üresen
         public static T EllenorzottBekeres<T>(string bekeroszoveg = "Add meg a bekért adatot!")
         {
             string adat = Bekeres(bekeroszoveg);
@@ -41,15 +39,15 @@ namespace F1
                 }
             }
             // ha az adat nem üres
-            else if(adat != "")
-            { 
+            else if (adat != "")
+            {
                 try
                 {
                     // megpróbálja a kapott adatot T típusúvá tenni
                     adatkonvertált = (T)Convert.ChangeType(adat, typeof(T));
                 }
                 // ha nem sikerult konvertálni
-                catch(FormatException e)
+                catch (FormatException e)
                 {
                     Console.WriteLine("Hibás adatbevitel");
                     Console.WriteLine(e.Message);
@@ -59,10 +57,8 @@ namespace F1
             }
             return adatkonvertált;
         }
-        // Bekér egy adatot
-        // majd megvizsgálja ha kovnertálható
-        // majd megnézi hogy benne van-e a megadott tombben
-        // majd tömbben van függvényében visszaad egy értéket
+        // Bekér egy adatot majd megvizsgálja ha kovnertálható majd megnézi hogy benne van-e a
+        // megadott tombben majd tömbben van függvényében visszaad egy értéket
         public static T EllenorzottBekeres<T>(List<T> tomb, string bekeroszoveg = "Add meg a bekért adatot!", bool tombben = true)
         {
             //bekéri adatkonvertált
@@ -71,16 +67,16 @@ namespace F1
             if ((tomb.Contains(adatkonvertált) && !tombben) ||
                 // vagy ha nincs benne pedig bent kéne
                 (!tomb.Contains(adatkonvertált) && tombben))
-                { 
-                    // ujra bekéri
-                    Console.WriteLine("Nincs ilyen adat a megadott paraméterek alapján!\n");
-                    adatkonvertált = EllenorzottBekeres(tomb, bekeroszoveg, tombben);
-                }
+            {
+                // ujra bekéri
+                Console.WriteLine("Nincs ilyen adat a megadott paraméterek alapján!\n");
+                adatkonvertált = EllenorzottBekeres(tomb, bekeroszoveg, tombben);
+            }
             return adatkonvertált;
         }
-        // bekér egy adatot, amit addig kér amig nem double-é konvertálható
-        // és ha kisebb mint a MIN akk visszaadja, ha nem akkor meghivja újra önmagát
-        // nem lehet generikus, mert min-t és T-t nem lehet osszeegyeztetni
+        // bekér egy adatot, amit addig kér amig nem double-é konvertálható és ha kisebb mint a MIN
+        // akk visszaadja, ha nem akkor meghivja újra önmagát nem lehet generikus, mert min-t és T-t
+        // nem lehet osszeegyeztetni
         public static double EllenorzottBekeres(string bekeroszoveg = "Add meg a bekért adatot!", int MIN = 0)
         {
             //bekéri adatkonvertált
@@ -93,5 +89,7 @@ namespace F1
             }
             return adatkonvertált;
         }
-    }   
+
+        #endregion Public Methods
+    }
 }

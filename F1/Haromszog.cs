@@ -1,21 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace F1
+﻿namespace F1
 {
-    class Haromszog : Alakzat
+    internal class Haromszog : Alakzat
     {
+        #region Private Fields
+
         private double oldal1, magassag;
-        public Haromszog(string _nev = "Háromszög") : base(_nev) {}
+
+        #endregion Private Fields
+
+        #region Public Constructors
+
+        public Haromszog(string _nev = "Háromszög") : base(_nev)
+        {
+        }
+
+        #endregion Public Constructors
+
+        #region Protected Methods
+
         protected override void Beolvas()
         {
-            this.oldal1 = this.Olvas("Add meg a háromszog egy oldalát!");
-            this.magassag = this.Olvas("Add meg a háromszog ehhez tartozo magassagat");
+            this.oldal1 = Olvas("Add meg a háromszog egy oldalát!");
+            this.magassag = Olvas("Add meg a háromszog ehhez tartozo magassagat");
         }
         protected override void Szamol()
         {
-            this.ter = (oldal1 * magassag) / 2;
+            this.ter = (this.oldal1 * this.magassag) / 2;
         }
+
+        #endregion Protected Methods
     }
 }
